@@ -7,9 +7,9 @@ class BST:
     def buildBst(self,root,ele):
         if root == None:
             return Node(ele)
-        elif ele<root.data:
+        if ele<root.data:
             root.left=self.buildBst(root.left,ele)
-        elif ele>root.data:
+        else:
             root.right=self.buildBst(root.right,ele)
         return root
 
