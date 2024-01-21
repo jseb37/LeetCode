@@ -12,19 +12,31 @@ class BST:
         else:
             root.right=self.buildBst(root.right,ele)
         return root
-    def mini(self,root):
+    def search(self,root,ele):
+        if root==None or root.data==ele:
+            return root
+        elif ele<root.data:
+           return self.search(root.left,ele)
+        elif ele>root.data:
+            return self.search(root.right,ele)
+    def minimum(self,root):
         if root.left == None:
            return root.data
-        return self.mini(root.left)
-    def maxim(self,root):
+        return self.minimum(root.left)
+    def maximum(self,root):
        if root.right == None:
           return root.data
-       return self.maxim(root.right)
+       return self.maximum(root.right)
 root = None
 b = BST()
 for ele in [10,5,25,2,7,30]:
     root = b.buildBst(root,ele)
-m=b.mini(root)
+m=b.minimum(root)
 print("Min value is {}".format(m))
-ma=b.maxim(root)
+ma=b.maximum(root)
 print("Max value is {}".format(ma))
+s=b.search(root,30)
+if s == None:
+   print("Element Not Found")
+elif s != None:
+   print("Found {}".format(s.data))
