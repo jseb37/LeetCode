@@ -1,4 +1,4 @@
-##Below code demonstrates building of binary search tree, finding minimum and max value from BST and searching value
+##Below code demonstrates building of binary search tree, inorder traversal,finding minimum and max value from BST and searching value
 ##All implemented based on recursion
 
 class Node:
@@ -15,6 +15,13 @@ class BST:
         else:
             root.right=self.buildBst(root.right,ele)
         return root
+    #Inorder Traversal
+    def inorder(self,root):
+        if root == None:
+            return root
+        self.inorder(root.left)
+        print(root.data)
+        self.inorder(root.right)
     #Search value
     def search(self,root,ele):
         if root==None or root.data==ele:
@@ -36,10 +43,12 @@ class BST:
           return root.data
        return self.maximum(root.right)
 
+
 root = None
 b = BST()
 for ele in [10,5,25,2,7,30]:
     root = b.buildBst(root,ele)
+b.inorder(root)
 m=b.minimum(root)
 print("Min value is {}".format(m))
 ma=b.maximum(root)
