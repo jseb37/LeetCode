@@ -15,7 +15,7 @@ class BST:
         else:
             root.right=self.buildBst(root.right,ele)
         return root
-    #Inorder Traversal
+    #Inorder Traversal  - LeftNode,RootNode,RightNode
     def inorder(self,root):
         if root == None:
             return root
