@@ -31,6 +31,7 @@ class BST:
                 cur=cur.right
             else:
                 return cur
+
 root = None
 b = BST()
 for ele in [6,2,8,0,4,7,9,3,5]:
