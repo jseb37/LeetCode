@@ -44,3 +44,8 @@ class Solution:
                 newInterval=[min(newInterval[0],intervals[i][0]),max(newInterval[1],intervals[i][1])]
         res.append(newInterval)
         return res
+
+
+s = Solution()
+res=s.insert([[1,3],[6,9]],[2,5])
+print(res)
