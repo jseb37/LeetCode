@@ -30,7 +30,6 @@ class Solution(object):
                 break
         if not(top <= bot):
             return False
-        row = (top + bot) // 2
         l,r = 0 , COLS -1
         while l <= r:
             m = (l + r) //2
