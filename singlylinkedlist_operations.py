@@ -28,7 +28,16 @@ class LinkedList:
         else:
             self.head = newNode
 
+    def display(self):
+        current = self.head
+        while current != None:
+            print(current.info)
+            current = current.link
 LL = LinkedList()
 LL.insert_at_beginning(10)
-
-
+LL.insert_at_beginning(5)
+LL.display()
+print("*****")
+LL.insert_at_end(20)
+LL.insert_at_end(30)
+LL.display()
