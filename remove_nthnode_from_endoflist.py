@@ -40,14 +40,12 @@ def removeNthFromEnd(head,n):
     dummy=Node(0,head)
     left=dummy
     right=head
-
-    while n > 0 and right:
+    count = 0
+    while right!=None:
         right = right.link
-        n-=1
-
-    while right:
-        left=left.link
-        right=right.link
+        count += 1
+        if count > n:
+            left = left.link
     #Delete
     left.link = left.link.link
     return dummy.link
