@@ -41,6 +41,7 @@ def removeNthFromEnd(head,n):
     left=dummy
     right=head
     count = 0
+    #keep gap of n with left and right pointers
     while right!=None:
         right = right.link
         count += 1
