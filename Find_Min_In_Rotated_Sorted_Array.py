@@ -9,8 +9,6 @@ Given the sorted rotated array nums of unique elements, return the minimum eleme
 
 You must write an algorithm that runs in O(log n) time.
 
-
-
 Example 1:
 
 Input: nums = [3,4,5,1,2]
@@ -26,6 +24,35 @@ Example 3:
 Input: nums = [11,13,15,17]
 Output: 11
 Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
+
+'''
+
+'''
+Core Concept
+
+For rotated sorted array , if mid value of array is greater than last value it means minimum value is in second half of array.
+In Rotated sorted array 2 halfs of array are sorted.
+
+Exampe as shown below. This will be same case for even length array.
+[3,4,5,1,2]  ----> Rotated 3 time
+[2,3,4,5,1]  ----> Rotated 4 time
+
+Then,we need to check for min value in second half of array (no need to check in 1st half of array) to reduce time complexity.
+
+If mid value less than last value , we need to check on first half of array , right pointer change to mid,left pointer as it is
+
+This process continue till left pointer less than right pointer if , both comes equal return num[right] which will be the minimum value
+
+Why return num[right] not nums[mid] , it will give "local variable 'mid' referenced before assignment" error for array with single value say nums [1]
+In this case it wont enter to while condition or mid value be assigned , therefor just return nums[right] or nums[0] which is 1
+[1,2,3,4,5]  ----> Original Array
+[5,1,2,3,4]  ----> Rotated 1 time
+[4,5,1,2,3]  ----> Rotated 2 time
+[3,4,5,1,2]  ----> Rotated 3 time
+[2,3,4,5,1]  ----> Rotated 4 time
+[1,2,3,4,5]  ----->Rotated 5 time
+
+
 
 '''
 
