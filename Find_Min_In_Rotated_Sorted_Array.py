@@ -1,5 +1,5 @@
 '''
-Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
+Suppose an array of length n sorted in ascrighting order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
 
 [4,5,6,7,0,1,2] if it was rotated 4 times.
 [0,1,2,4,5,6,7] if it was rotated 7 times.
@@ -35,14 +35,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        beg, end = 0, len(nums) - 1
-        while beg < end:
-            mid = (beg + end) // 2
-            if nums[mid] > nums[end]:
-                beg = mid + 1
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) // 2
+            if nums[mid] > nums[right]:
+                left = mid + 1
             else:
-                end = mid
-        return nums[end]
+                right = mid
+        return nums[right]
 
 s= Solution()
 nums = [3,4,5,1,2]
