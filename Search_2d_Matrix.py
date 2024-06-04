@@ -59,6 +59,7 @@ class Solution(object):
                 right = mid - 1
             else:
                 return True
+        #If left pointer and right pointer crosses each other element not found
         return False
 
 s = Solution()
