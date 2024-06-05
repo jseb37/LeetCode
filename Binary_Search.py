@@ -8,15 +8,14 @@ def binary_search(list1, n):
         # for get integer result
         mid = (left + right) // 2
         # Check if n is present at mid
+        if list1[mid] == n:
+            return mid
+        # If n is greater, compare to the right of mid
         if list1[mid] < n:
             left = mid + 1
-            # If n is greater, compare to the right of mid
+        # If n is smaller, compared to the left of mid
         elif list1[mid] > n:
             right = mid - 1
-            # If n is smaller, compared to the left of mid
-        else:
-            return mid
-            # element was not present in the list, return -1
     return -1
 
 
