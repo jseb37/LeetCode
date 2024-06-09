@@ -55,7 +55,7 @@ class Solution(object):
                     left = mid + 1
 
             # right sorted portion
-            elif nums[mid] <= nums[left]:
+            else:
                 if nums[mid] <= target <= nums[right]:
                     left = mid + 1
                 else:
