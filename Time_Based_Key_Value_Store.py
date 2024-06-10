@@ -26,6 +26,9 @@ timeMap.get("foo", 4);         // return "bar2"
 timeMap.get("foo", 5);         // return "bar2"
 
 '''
+
+#Explaination
+
 class TimeMap(object):
 
     def __init__(self):
@@ -49,6 +52,11 @@ class TimeMap(object):
         :rtype: str
         """
         res = ""
+        #dictionary.get(keyname, value)
+        #keyname	Required. The keyname of the item you want to return the value from
+        #value	Optional. A value to return if the specified key does not exist.
+        #Default value None
+        #Here if key doesnt exist return empty list
         values = self.store.get(key ,[])
         # binary search
         l, r = 0, len(values) - 1
@@ -67,3 +75,23 @@ class TimeMap(object):
 # obj = TimeMap()
 # obj.set(key,value,timestamp)
 # param_2 = obj.get(key,timestamp)
+
+'''
+store = {}
+store['foo'] =[]
+store['foo'].append(["bar",1])
+store['foo'].append(["bar2",4])
+
+print(store)
+print(store.get('foo',[]))
+print(store.get('hello',[]))
+print(store.get('hello'))
+
+
+Output
+
+{'foo': [['bar', 1], ['bar2', 4]]}
+[['bar', 1], ['bar2', 4]]
+[]
+None
+'''
