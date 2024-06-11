@@ -5,7 +5,7 @@ Implement the TimeMap class:
 
 TimeMap() Initializes the object of the data structure.
 void set(String key, String value, int timestamp) Stores the key key with the value value at the given time timestamp.
-String get(String key, int timestamp) Returns a value such that set was called previously, with timestamp_prev <= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".
+String get(String key, int timestamp) Returns a value  with timestamp_prev <= timestamp. If there are multiple such values, it returns the value associated with the largest timestamp_prev. If there are no values, it returns "".
 
 
 Example 1:
@@ -28,6 +28,24 @@ timeMap.get("foo", 5);         // return "bar2"
 '''
 
 #Explaination
+store = {}
+store['foo'] =[]
+store['foo'].append(["bar",1])
+store['foo'].append(["bar2",3])
+store['foo'].append(["bar3",5])
+store['foo'].append(["bar4",7])
+store['foo'].append(["bar5",9])
+
+print(store)
+print(store.get('foo',[]))
+print(store.get('hello',[]))
+print(store.get('hello'))
+
+ #1 3 5 7 9
+ #If timestamp passed is 8,it gets bar4 corressponding to timestamp 7
+ #If timestamp passed is 9,it gets bar5 corressponding to timestamp 9 - It is done using binary search
+
+
 
 class TimeMap(object):
 
@@ -56,12 +74,14 @@ class TimeMap(object):
         #keyname	Required. The keyname of the item you want to return the value from
         #value	Optional. A value to return if the specified key does not exist.
         #Default value None
-        #Here if key doesnt exist return empty list
+        #Here if key doesnt exist return empty list or if exists return values corresponding to key
         values = self.store.get(key ,[])
         # binary search
         l, r = 0, len(values) - 1
         while l <= r:
             m = (l + r ) // 2
+            #If timestamp passed is not present in the list of list , return the 1st value in list of list corressponding to the previous highest
+            # otherwise return the same 1st value in list of list corresponding to the timestamp
             if values[m][1] <= timestamp:
                 res = values[m][0]
                 l = m + 1
@@ -75,23 +95,3 @@ class TimeMap(object):
 # obj = TimeMap()
 # obj.set(key,value,timestamp)
 # param_2 = obj.get(key,timestamp)
-
-'''
-store = {}
-store['foo'] =[]
-store['foo'].append(["bar",1])
-store['foo'].append(["bar2",4])
-
-print(store)
-print(store.get('foo',[]))
-print(store.get('hello',[]))
-print(store.get('hello'))
-
-
-Output
-
-{'foo': [['bar', 1], ['bar2', 4]]}
-[['bar', 1], ['bar2', 4]]
-[]
-None
-'''
