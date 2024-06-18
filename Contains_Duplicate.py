@@ -40,3 +40,19 @@ s = Solution()
 nums = [1,1,1,3,3,4,3,2,4,2]
 res = s.containsDuplicate(nums)
 print(res)
+
+
+#Using set
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums_set = set(nums)
+        if len(nums_set) != len(nums):
+            return True
+        else:
+            return False
+
