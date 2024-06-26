@@ -54,8 +54,15 @@ class Solution(object):
         """
         count = {}
         freq = [[] for i in range(len(nums) + 1)]
+        #Why len(nums) + 1 - Because if there are 6 elements in array, there can be 0 count  till 6 count ,so 7
+
         print(freq)
-        # index of array freq will be count of element and value will be list of elements with that count
+        # index of freq will be count of element and value will be list of elements with that count
+        #[[]
+         #[]
+         #[]]
+        #It will be 2d array with index - freq of element and column - the elements with that frequency
+        #We will append the elements with that frequency and this will be column of 2D array
         for n in nums:
             count[n] = 1 + count.get(n,0)
         print(count)
