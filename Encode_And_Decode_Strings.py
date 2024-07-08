@@ -7,6 +7,10 @@ Input: ["neet","code","love","you"]
 Output:["neet","code","love","you"]
 
 '''
+'''
+length of string + # + string -> length for checking when next string starts and # for separation of strings
+
+'''
 
 class Solution:
     def encode(self,strs):
