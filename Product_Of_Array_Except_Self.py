@@ -26,25 +26,49 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 
 Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
 '''
+
+'''    
+[1,2,3,4,5]
+
+[1,1,2,6,24] - #Left Array
+
+[1,5,20,60,120]
+
+Reverse above array 
+
+[120,60,20,5,1] - #Right Array 
+
+Multiply both left and right array , index by index and store in output array
+'''
+
+
 class Solution(object):
     def productExceptSelf(self, nums):
         """
         :type nums: List[int]
         :rtype: List[int]
         """
-        output = [1] #right
-        for i in range(len(nums)-1 , 0 , -1):
-            output.append(output[-1]*nums[i])
-        output = output[::-1]
+        left = [1]
+        right = [1]
+        output = []
 
-        left = 1
+        # Left array
+        for i in range(len(nums)-1):
+            left.append(left[-1] * nums[i])
+        print(left)
+        #Right array
+        for i in range(len(nums)-1, 0, -1):
+            right.append(right[-1] * nums[i])
+        print(right)
+        right = right[::-1]
+
+
         for i in range(len(nums)):
-            output[i] = output[i]*left
-            left*=nums[i]
+            output.append(left[i] * right[i])
         return output
 
 
 so = Solution()
-nums = [-1,1,0,-3,3]
+nums = [1,2,3,4,5]
 output=so.productExceptSelf(nums)
 print(output)
