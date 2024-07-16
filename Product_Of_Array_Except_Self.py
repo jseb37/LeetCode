@@ -32,13 +32,21 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 
 [1,1,2,6,24] - #Left Array
 
-[1,5,20,60,120]
+[1,5,20,60,120] 
 
 Reverse above array 
 
 [120,60,20,5,1] - #Right Array 
 
 Multiply both left and right array , index by index and store in output array
+
+
+As we have 1 already appended to array,when looped from first index, the product of last value in left array and value at current index will 
+be product of all values behind that particular index
+
+Similary in right array
+
+
 '''
 
 
