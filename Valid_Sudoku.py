@@ -19,7 +19,9 @@ class Solution(object):
         """
         cols = collections.defaultdict(set)
         rows = collections.defaultdict(set)
-        squares = collections.defaultdict(set)  # key = (r/3,c/3)
+        squares = collections.defaultdict(set)
+        # key = (r/3,c/3) - represents each square
+        #Sqaures dict - Key is tuple =>(r/3,c/3) and value is set of values inside sudoku subsqaure
         for r in range(9):
             for c in range(9):
                 if board[r][c] == ".":
@@ -28,9 +30,12 @@ class Solution(object):
                     board[r][c] in cols[c] or
                     board[r][c] in squares[(r // 3 , c // 3)]):
                     return False
-                cols[c].add(board[r][c])
+                cols[c].add(board[r][c])  # Add function to add values in set
                 rows[r].add(board[r][c])
                 squares[(r //3 , c // 3)].add(board[r][c])
+        print(rows)
+        print(cols)
+        print(squares)
         return True
 
 s = Solution()
