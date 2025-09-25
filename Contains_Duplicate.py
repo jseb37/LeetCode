@@ -29,6 +29,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
+        hashset = set()
+
+        for n in nums:
+            if n in hashset:
+                return True
+            else:
+                hashset.add(n)    
+        return False        
+
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
         count = dict()
         for n in nums:
             count[n] = 1 + count.get(n,0)
