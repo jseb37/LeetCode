@@ -1,1 +1,1 @@
-This repo is used to add different leetcode questions practiced using python
+Solving leetcode problems in python
