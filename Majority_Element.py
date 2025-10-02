@@ -23,19 +23,16 @@ n == nums.length
 
 Follow-up: Could you solve the problem in linear time and in O(1) space?
 '''
-class Solution(object):
-    def majorityElement(self, nums):
-        count = {}
-        res, maxCount = 0, 0
-        for n in nums:
-            count[n] = 1 + count.get(n, 0)
-            if count[n] > maxCount:
-                res = n
-            else:
-                res
-            maxCount = max(count[n], maxCount)
-        return res
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        my_dict = {}
 
-s = Solution()
-res = s.majorityElement([2,2,1,1,1,2,2])
-print(res)
+        for n in nums:
+            my_dict[n]= 1+ my_dict.get(n,0)
+
+        for k,v in my_dict.items():
+            if v > len(nums)/2:
+                return k
+
+
+        
