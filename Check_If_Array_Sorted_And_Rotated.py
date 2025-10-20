@@ -49,18 +49,20 @@ class Solution:
 
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        N = len(nums)
         count = 1
-
-        for i in range(1, 2 * N):
-            if nums[(i - 1) % N] <= nums[i % N]:
+        n = len(nums)
+        if n <= 1:
+           return True    
+        for i in range(1,2*n):
+            if nums[(i-1) % n] <= nums[i % n]:
                 count += 1
             else:
                 count = 1
-            if count == N:
-                return True
+            if count == n:
+               return True             
+   
+        return False
 
-        return N == 1
 
 
 
